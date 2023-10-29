@@ -71,27 +71,27 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>com.sun.xml.ws</groupId>-->
-<!--                <artifactId>jaxws-maven-plugin</artifactId>-->
-<!--                <version>4.0.2</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>generate</id>-->
-<!--                        <goals>-->
-<!--                            <goal>wsimport</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>-->
-<!--                    <packageName>com.see1rg.soap.ws.client</packageName>-->
-<!--                    <sourceDestDir>-->
-<!--                        src/main/java-->
-<!--                    </sourceDestDir>-->
-<!--                    <extension>true</extension>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>4.0.2</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>
+                    <packageName>com.see1rg.soap.ws.client</packageName>
+                    <sourceDestDir>
+                        src/main/java
+                    </sourceDestDir>
+                    <extension>true</extension>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
