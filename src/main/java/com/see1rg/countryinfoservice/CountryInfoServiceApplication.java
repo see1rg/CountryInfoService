@@ -1,13 +1,14 @@
 package com.see1rg.countryinfoservice;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.see1rg.soap.client.CountryInfoService;
+import com.see1rg.soap.client.CountryInfoServiceSoapType;
 
-@SpringBootApplication
 public class CountryInfoServiceApplication {
-
     public static void main(String[] args) {
-        SpringApplication.run(CountryInfoServiceApplication.class, args);
-    }
 
+        CountryInfoService countryInfoService = new CountryInfoService();
+        CountryInfoServiceSoapType countryInfoServiceSoapType = countryInfoService.getCountryInfoServiceSoap();
+        System.out.println(countryInfoServiceSoapType.capitalCity("RUS"));
+    }
 }
+

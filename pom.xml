@@ -2,12 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.17</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+
     <groupId>com.see1rg</groupId>
     <artifactId>CountryInfoService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -20,30 +15,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web-services</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
-            <version>3.4.8</version>
+            <version>1.6.3</version>
         </dependency>
 
         <dependency>
@@ -68,10 +42,6 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>com.sun.xml.ws</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>4.0.2</version>
@@ -84,32 +54,18 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>
-                    <packageName>com.see1rg.soap.ws.client</packageName>
+                    <wsdlUrls>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?wsdl</wsdlUrls>
+                    <args>
+                        <arg>-XdisableAuthenticator</arg>
+                    </args>
+                    <packageName>com.see1rg.soap.client</packageName>
                     <sourceDestDir>
                         src/main/java
                     </sourceDestDir>
                     <extension>true</extension>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sources>
-                        <source>${project.basedir}/src/main/resources/xsd/patch.xsd</source>
-                    </sources>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 </project>
